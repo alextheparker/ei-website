@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import {
   Activity,
   ArrowLeft,
@@ -6,12 +6,10 @@ import {
   Check,
   CheckCircle2,
   Copy,
-  CreditCard,
   LayoutDashboard,
   Mail,
   Menu,
   MessageCircle,
-  Plus,
   Presentation,
   X,
   Zap,
@@ -221,17 +219,13 @@ const App = () => {
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  const nextSlide = () => {
-    if (activeSlideIndex < SLIDES.length - 1) {
-      setActiveSlideIndex((prev) => prev + 1);
-    }
-  };
+  const nextSlide = useCallback(() => {
+    setActiveSlideIndex((prev) => Math.min(prev + 1, SLIDES.length - 1));
+  }, []);
 
-  const prevSlide = () => {
-    if (activeSlideIndex > 0) {
-      setActiveSlideIndex((prev) => prev - 1);
-    }
-  };
+  const prevSlide = useCallback(() => {
+    setActiveSlideIndex((prev) => Math.max(prev - 1, 0));
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -242,7 +236,7 @@ const App = () => {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [view, activeSlideIndex]);
+  }, [view, nextSlide, prevSlide]);
 
   const renderSlideContent = (slide: Slide) => {
     switch (slide.layout) {
