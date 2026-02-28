@@ -6,6 +6,7 @@ import {
   Check,
   CheckCircle2,
   Copy,
+  CreditCard,
   LayoutDashboard,
   Mail,
   Menu,
@@ -94,7 +95,7 @@ const SLIDES: Slide[] = [
         type: 'negative',
       },
       {
-        title: 'The Equitable Way',
+        title: 'The Heliophase Way',
         text: 'We compare your CRM data against financier playbooks in real-time to find the "Gap."',
         type: 'positive',
       },
@@ -212,7 +213,7 @@ const PROJECTS = [
   { id: '7923', financier: 'Sunpower', stage: 'Project Completion', homeowner: 'Hall', address: '8901 Hawthorn St, Coppell TX', nextTask: 'PTO letter complete, but monitoring sharing is incomplete. Share monitoring to finance company and submit project completion' },
 ];
 
-type ViewMode = 'presentation' | 'dashboard';
+type ViewMode = 'presentation' | 'dashboard' | 'pricing';
 
 const App = () => {
   const [view, setView] = useState<ViewMode>('presentation');
@@ -391,6 +392,130 @@ const App = () => {
     );
   };
 
+  const PricingView = () => (
+    <div className="flex-1 flex flex-col p-4 sm:p-6 lg:p-8 bg-[#0F0F11] overflow-y-auto">
+      <div className="max-w-6xl mx-auto w-full">
+        <div className="mb-8">
+          <span className="bg-[#FBBF24] text-black text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-widest inline-block mb-3">
+            Pricing
+          </span>
+          <h2 className="text-3xl font-black text-white tracking-tighter mb-2">Choose Your Plan</h2>
+          <p className="text-gray-500">Select the option that works best for your business.</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          {/* Pilot Program */}
+          <div className="bg-[#161618] border border-white/5 rounded-3xl p-8 flex flex-col">
+            <div className="mb-6">
+              <div className="inline-flex p-3 rounded-2xl bg-white/5 text-blue-400 mb-4">
+                <Zap size={28} />
+              </div>
+              <h3 className="text-2xl font-black text-white tracking-tighter mb-2">Pilot Program</h3>
+              <p className="text-gray-400 text-sm">Perfect for early adopters looking to optimize their operations</p>
+            </div>
+            
+            <div className="mb-6">
+              <div className="flex items-baseline gap-2">
+                <span className="text-5xl font-black text-white tracking-tighter">$1,000</span>
+                <span className="text-gray-500 text-lg">/month</span>
+              </div>
+            </div>
+
+            <ul className="space-y-3 mb-8 flex-1">
+              <li className="flex items-start gap-3">
+                <Check size={20} className="text-[#FBBF24] flex-shrink-0 mt-0.5" />
+                <span className="text-gray-300 text-sm">Full platform access</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Check size={20} className="text-[#FBBF24] flex-shrink-0 mt-0.5" />
+                <span className="text-gray-300 text-sm">Priority support</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Check size={20} className="text-[#FBBF24] flex-shrink-0 mt-0.5" />
+                <span className="text-gray-300 text-sm">Early access to new features</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Check size={20} className="text-[#FBBF24] flex-shrink-0 mt-0.5" />
+                <span className="text-gray-300 text-sm">Direct feedback channel</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Check size={20} className="text-[#FBBF24] flex-shrink-0 mt-0.5" />
+                <span className="text-gray-300 text-sm">Limited time offer</span>
+              </li>
+            </ul>
+
+            <button className="w-full bg-white/5 border border-white/10 text-white font-black py-4 rounded-2xl hover:bg-white/10 transition-all text-sm tracking-wide uppercase">
+              Join Pilot Program
+            </button>
+          </div>
+
+          {/* Standard Plan */}
+          <div className="bg-[#161618] border-2 border-[#FBBF24] rounded-3xl p-8 flex flex-col relative">
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+              <span className="bg-[#FBBF24] text-black text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest">
+                Recommended
+              </span>
+            </div>
+            
+            <div className="mb-6">
+              <div className="inline-flex p-3 rounded-2xl bg-[#FBBF24]/10 text-[#FBBF24] mb-4">
+                <CreditCard size={28} />
+              </div>
+              <h3 className="text-2xl font-black text-white tracking-tighter mb-2">Standard Plan</h3>
+              <p className="text-gray-400 text-sm">Full-featured solution for scaling solar TPO operations</p>
+            </div>
+            
+            <div className="mb-6">
+              <div className="flex items-baseline gap-2">
+                <span className="text-5xl font-black text-white tracking-tighter">$8,500</span>
+                <span className="text-gray-500 text-lg">/month</span>
+              </div>
+            </div>
+
+            <ul className="space-y-3 mb-8 flex-1">
+              <li className="flex items-start gap-3">
+                <Check size={20} className="text-[#FBBF24] flex-shrink-0 mt-0.5" />
+                <span className="text-gray-300 text-sm">Everything in Pilot Program</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Check size={20} className="text-[#FBBF24] flex-shrink-0 mt-0.5" />
+                <span className="text-gray-300 text-sm">Dedicated account manager</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Check size={20} className="text-[#FBBF24] flex-shrink-0 mt-0.5" />
+                <span className="text-gray-300 text-sm">Custom financier rule configuration</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Check size={20} className="text-[#FBBF24] flex-shrink-0 mt-0.5" />
+                <span className="text-gray-300 text-sm">Advanced analytics & reporting</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Check size={20} className="text-[#FBBF24] flex-shrink-0 mt-0.5" />
+                <span className="text-gray-300 text-sm">API access for integrations</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Check size={20} className="text-[#FBBF24] flex-shrink-0 mt-0.5" />
+                <span className="text-gray-300 text-sm">SLA guarantee</span>
+              </li>
+            </ul>
+
+            <button className="w-full bg-[#FBBF24] text-black font-black py-4 rounded-2xl hover:scale-105 active:scale-95 transition-all text-sm tracking-wide uppercase">
+              Get Started
+            </button>
+          </div>
+        </div>
+
+        <div className="mt-12 bg-[#161618] border border-white/5 rounded-3xl p-8 text-center">
+          <h3 className="text-xl font-black text-white tracking-tighter mb-3">Need a Custom Solution?</h3>
+          <p className="text-gray-400 mb-6">We offer enterprise plans tailored to your specific needs.</p>
+          <button className="bg-white/5 border border-white/10 text-white font-bold px-8 py-3 rounded-2xl hover:bg-white/10 transition-all text-sm">
+            Contact Sales
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+
   const DashboardView = () => {
     const totalProjects = PROJECTS.length;
 
@@ -452,8 +577,8 @@ const App = () => {
 
     return (
       <div className="flex-1 flex flex-col p-4 sm:p-6 lg:p-8 bg-[#0F0F11] overflow-hidden">
-        <div className="basis-[30%] min-h-0 flex flex-col">
-          <div className="mb-6">
+        <div className="flex-shrink-0 mb-6">
+          <div className="mb-4">
             <span className="bg-[#FBBF24] text-black text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-widest inline-block mb-3">
               Active Partner
             </span>
@@ -463,9 +588,9 @@ const App = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6">
             {stats.map((stat, i) => (
-              <div key={i} className="bg-[#161618] border border-white/5 p-4 sm:p-6 rounded-3xl flex flex-col h-full">
-                <div className={`mb-4 inline-flex p-3 rounded-2xl bg-white/5 ${stat.color}`}>
-                  <stat.icon size={22} />
+              <div key={i} className="bg-[#161618] border border-white/5 p-4 sm:p-6 rounded-3xl flex flex-col">
+                <div className={`mb-3 inline-flex p-2.5 rounded-2xl bg-white/5 ${stat.color}`}>
+                  <stat.icon size={20} />
                 </div>
                 <div className="min-h-[28px]">
                   <p className="text-gray-500 text-[10px] font-black uppercase tracking-widest leading-tight">
@@ -479,7 +604,7 @@ const App = () => {
           </div>
         </div>
 
-        <div className="basis-[70%] min-h-0 bg-[#161618] border border-white/5 rounded-3xl overflow-hidden shadow-2xl flex flex-col">
+        <div className="flex-1 min-h-0 bg-[#161618] border border-white/5 rounded-3xl overflow-hidden shadow-2xl flex flex-col">
           <div className="p-3 sm:p-4 border-b border-white/5 flex-shrink-0">
             <h3 className="font-black text-white uppercase tracking-widest text-sm">Recent Activity</h3>
           </div>
@@ -572,10 +697,7 @@ const App = () => {
               <Zap size={28} fill="currentColor" />
             </div>
             <div>
-              <h2 className="font-black text-sm uppercase tracking-[0.2em] leading-tight text-white">Equitable</h2>
-              <h2 className="font-black text-sm uppercase tracking-[0.2em] leading-tight text-[#FBBF24]">
-                Industries
-              </h2>
+              <h2 className="font-black text-sm uppercase tracking-[0.2em] leading-tight text-white">Heliophase</h2>
             </div>
           </div>
         </div>
@@ -609,6 +731,20 @@ const App = () => {
             <LayoutDashboard size={20} />
             <span className="font-bold text-sm">Sandbox Dashboard</span>
           </button>
+          <button
+            onClick={() => {
+              setView('pricing');
+              setSidebarOpen(false);
+            }}
+            className={`w-full flex items-center gap-4 px-6 py-4 rounded-2xl transition-all ${
+              view === 'pricing'
+                ? 'bg-white/5 text-[#FBBF24] border border-white/10'
+                : 'text-gray-500 hover:text-white'
+            }`}
+          >
+            <CreditCard size={20} />
+            <span className="font-bold text-sm">Pricing</span>
+          </button>
         </nav>
 
         <div className="p-6">
@@ -622,7 +758,7 @@ const App = () => {
       </aside>
 
       <main className="flex-1 flex flex-col relative w-full lg:w-auto">
-        {view === 'presentation' ? <PresentationView /> : <DashboardView />}
+        {view === 'presentation' ? <PresentationView /> : view === 'pricing' ? <PricingView /> : <DashboardView />}
       </main>
     </div>
   );
