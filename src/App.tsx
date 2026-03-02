@@ -479,10 +479,6 @@ const App = () => {
               </li>
               <li className="flex items-start gap-3">
                 <Check size={20} className="text-[#FBBF24] flex-shrink-0 mt-0.5" />
-                <span className="text-gray-300 text-sm">Dedicated account manager</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Check size={20} className="text-[#FBBF24] flex-shrink-0 mt-0.5" />
                 <span className="text-gray-300 text-sm">Custom financier rule configuration</span>
               </li>
               <li className="flex items-start gap-3">
